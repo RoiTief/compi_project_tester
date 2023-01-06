@@ -22,12 +22,9 @@ GCC_COMMAND_64 = $(GCC_EXE) $(GCC_OPTIONS) $(GCC_OPTIONS_64) -o $* ${TMPDIR}/$*.
 %:	%.o
 	$(GCC_COMMAND_64)
 
-.PHONY: clean cleanall cleane
+.PHONY: clean 
 clean:
-	rm -r /tmp/testcode_*
-	rm ./foo_*
-cleane:
-	find -type f -name "foo_*" ! -name "foo_*.asm" -delete
+	rm -r foo*
 
 
 # end of input

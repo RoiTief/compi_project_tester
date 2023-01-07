@@ -32,5 +32,5 @@ let run_cg_tests (cg_tests : cg_test list) kind=
     exit 1;;
 
 
-run_cg_tests const_tests "const";;
+run_cg_tests const_tests "const";; (* testing constants *)
 

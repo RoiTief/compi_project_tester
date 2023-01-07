@@ -1,4 +1,3 @@
-type cg_test = {test: string; expected: string};;
 
 let const_tests : cg_test list = [
   {test = "#t"; expected = "#t"};

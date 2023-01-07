@@ -1,7 +1,16 @@
 #use "code-gen.ml";;
+#load "str.cma";;
+
+type cg_test = {test: string; expected: string};;
+
 #use "tests_hub/const_tests.ml";;
+#use "tests_hub/elias_tests.ml";;
+#use "tests_hub/mayer_tests.ml";;
 
 exception X_failed_test of string * string * string;; (* test, expected, actual *)
+
+let closure_regex = Str.regexp "^#<closure";;
+let sexprs output= (PC.star Reader.nt_sexpr output 0).found;;
 
 let cg_tester test expected = 
   try
@@ -10,10 +19,18 @@ let cg_tester test expected =
     let run_in_ch = Unix.open_process_in "./foo | head -1" in
     let actual = input_line run_in_ch in
     close_in run_in_ch;
-    if actual = expected then
-      ()
-    else
-      raise (X_failed_test(test, expected, actual))
+    if expected = "closure" then
+      if Str.string_match closure_regex actual 0 then
+        ()
+      else
+        raise (X_failed_test(test, expected, actual))
+    else 
+      let expected_sexprs = sexprs expected
+      and actual_sexprs = sexprs actual in
+      if actual_sexprs = expected_sexprs then
+        ()
+      else
+        raise (X_failed_test(test, expected, actual)) 
   with
   | X_syntax(syntax_err) -> raise (X_failed_test(test, expected, (Printf.sprintf "X_syntax(%s)" syntax_err)))
   | X_not_yet_implemented -> raise (X_failed_test(test, expected, "X_not_yet_implemented"))
@@ -31,6 +48,7 @@ let run_cg_tests (cg_tests : cg_test list) kind=
     Printf.printf "\nFAILED %s tests\nTest string: %s\nExpected: %s\nActual: %s\n" kind test expected actual;
     exit 1;;
 
-
-run_cg_tests const_tests "const";; (* testing constants *)
+run_cg_tests const_tests "const";; (* testing constants *) 
+run_cg_tests elias_tests "Elias's";; (* all tests from Elias's tester *)
+run_cg_tests mayer_tests "Mayer's";; (* Mayer's torture tests. These are not debuggable but give a good feeling that the compiler works. *)
 

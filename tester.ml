@@ -50,13 +50,9 @@ let run_cg_tests (cg_tests : cg_test list) kind=
     Printf.printf "\nFAILED %s tests\nTest string:\n%s\nExpected: %s\nActual: %s\n" kind test expected actual;
     exit 1;;
 
-(*
 run_cg_tests const_tests "const";; (* testing constants *) 
 run_cg_tests seq_tests "sequence";; (* testing sequencess *) 
-*)
 run_cg_tests if_tests "if";; (* testing if and 'and' *) 
-(*
 run_cg_tests elias_tests "Elias's";; (* all tests from Elias's tester *)
 run_cg_tests mayer_tests "Mayer's";; (* Mayer's torture tests. These are not debuggable but give a good feeling that the compiler works. *)
-*)
 

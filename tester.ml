@@ -9,6 +9,7 @@ type cg_test = {test: string; expected: string};;
 #use "tests_hub/seq_tests.ml";;
 #use "tests_hub/if_tests.ml";;
 #use "tests_hub/or_tests.ml";;
+#use "tests_hub/tc_tests.ml";;
 
 exception X_failed_test of string * string * string;; (* test, expected, actual *)
 

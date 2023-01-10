@@ -5168,6 +5168,7 @@ n o p q r s t u v w x y z)))))))))))))))))" ; expected = "#t"};
   '(\"*\" \"**\" \"***\" \"****\" \"*****\" \"******\" \"*******\" \"********\"
     \"*********\" \"**********\"))" ; expected = "#t"};
   {test = "((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x ((lambda x x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))" ; expected = "()"};
+  (*
   {test = "(apply apply (cons apply (cons (cons apply (cons (cons
 apply (cons (cons apply (cons (cons apply (cons (cons
 apply (cons (cons apply (cons (cons apply (cons (cons
@@ -10172,6 +10173,7 @@ apply (cons (cons cons (cons (cons #t (cons #f '())) '())) '())) '()))
 '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '()))
 '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '()))
 '())) '())) '())) '())) '())) '())) '())) '())) '())) '())))" ; expected = "(#t . #f)"};
+  too big *)
   {test = "'()" ; expected = "()"};
   {test = "(define even?
   (letrec ((even-1?

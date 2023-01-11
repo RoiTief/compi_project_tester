@@ -10174,7 +10174,6 @@ apply (cons (cons cons (cons (cons #t (cons #f '())) '())) '())) '()))
 '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '()))
 '())) '())) '())) '())) '())) '())) '())) '())) '())) '())))" ; expected = "(#t . #f)"};
   too big *)
-  {test = "'()" ; expected = "()"};
   {test = "(define even?
   (letrec ((even-1?
             (lambda (n)
@@ -10195,4 +10194,15 @@ apply (cons (cons cons (cons (cons #t (cons #f '())) '())) '())) '()))
     even-1?))
 
 (even? 100)" ; expected = "#t"};
+  {test = "(apply apply (cons apply (cons (cons apply (cons (cons apply (cons
+  (cons apply (cons (cons apply (cons (cons apply (cons (cons apply
+  (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons
+  apply (cons (cons apply (cons (cons apply (cons (cons apply (cons
+  (cons apply (cons (cons apply (cons (cons apply (cons (cons apply
+  (cons (cons apply (cons (cons append (cons '((a b c) (d e f) (g h
+  i)) '())) '())) '())) '())) '())) '())) '())) '())) '())) '()))
+  '())) '())) '())) '())) '())) '())) '())) '())) '())) '())))" ; expected = "(a b c d e f g h i)"};
+  {test = "(apply apply (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons car (cons '((moshe is not yossi!)) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())))" ; expected = "moshe"};
+  {test = "(apply apply (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons apply (cons (cons list (cons '(a b c) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())) '())))" ; expected = "(a b c)"};
+  {test = "'()" ; expected = "()"};
 ]

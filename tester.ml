@@ -13,6 +13,7 @@ type cg_test = {test: string; expected: string};;
 #use "tests_hub/set_tests.ml";;
 #use "tests_hub/applic_no_opt_tests.ml";;
 #use "tests_hub/opt_tests.ml";;
+#use "tests_hub/apply_tests.ml";;
 
 exception X_failed_test of string * string * string;; (* test, expected, actual *)
 
@@ -63,6 +64,7 @@ run_cg_tests set_tests "Define-Set-Get";; (* set! for free vars *)
 run_cg_tests antp_no_opt_tests "Applic non-tail-call non-opt";; (* testing applic on non-opt lambdas *) 
 run_cg_tests opt_tests "lambda opt";; (* testing applic on opt lambdas *) 
 run_cg_tests tc_tests "tail-call";; 
+run_cg_tests apply_tests "__bin-apply";; 
 run_cg_tests elias_tests "Elias's";; (* all tests from Elias's tester *)
 run_cg_tests mayer_tests "Mayer's";; (* Mayer's torture tests. These are not debuggable but give a good feeling that the compiler works. *)
 
